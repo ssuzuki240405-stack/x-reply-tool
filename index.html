@@ -710,6 +710,15 @@
 
         // 初期化実行
         init();
+
+        // URLパラメータから自動入力
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const text = params.get('text');
+            if (text) {
+                document.getElementById('originalPost').value = decodeURIComponent(text);
+            }
+        });
     </script>
 </body>
 </html>
